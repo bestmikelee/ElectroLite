@@ -9,7 +9,7 @@ This app is still under construction but does work under the right conditions
 Configuration of sqlite3 may give you some issues.  [Solution found here]
 (http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/)
 
-``` The important bits adjusted for this version of node and sqlite
+```
 cd node_modules/sqlite3
 npm run prepublish
 node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v44-darwin-x64
