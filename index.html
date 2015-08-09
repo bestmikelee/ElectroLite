@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body ng-app="myApp">
+  	<div ng-controller="myCtrl">
+    <h1>Hello World!</h1>
+    We are using io.js <script>document.write(process.version)</script>
+    and Electron <script>document.write(process.versions['electron'])</script>
+    <p>{{ test }}</p>
+    <textarea ng-model="texting"></textarea>
+    <p>{{texting}}</p>
+    <div ng-repeat="user in users">{{user}}</div>
+    <button ng-click="sendToDB()">test me</button>
+    <button ng-click="deleteAllUsers()">delete all</button>
+	</div>
+  </body>
+  <script type="text/javascript" src="./db/sqlize.js"></script>
+  <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="./browser/app.js"></script>
+
+</html>
