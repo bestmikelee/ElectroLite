@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World!</title>
+    <title>Welcome to ElectroLite!</title>
   </head>
   <body ng-app="myApp">
   	<div ng-controller="myCtrl">
-    <h1>Hello World!</h1>
-    We are using io.js <script>document.write(process.version)</script>
-    and Electron <script>document.write(process.versions['electron'])</script>
+    <h1>This app is using Electron, Angular and Sqlite</h1>
+    
+    <a ui-sref="noState"> Home </a><span> | </span>
+    <a ui-sref="myState"> Test State </a>
+ 	
+    <div ui-view></div>
     <p>{{ test }}</p>
-    <textarea ng-model="texting"></textarea>
-    <p>{{texting}}</p>
+    <textarea ng-model="insertText"></textarea>
+    <p>{{insertText}}</p>
     <div ng-repeat="user in users">{{user}}</div>
-    <button ng-click="sendToDB()">test me</button>
+    <button ng-click="insertInto()">Add to DB</button>
     <button ng-click="deleteAllUsers()">delete all</button>
 	</div>
   </body>
-  <script type="text/javascript" src="./db/sqlize.js"></script>
+  
   <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="./node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+  <script type="text/javascript" src="./db/sqlize.js"></script>
   <script type="text/javascript" src="./browser/app.js"></script>
+  <script type="text/javascript" src="./browser/views/dbview.js"></script>
+
 
 </html>

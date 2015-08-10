@@ -17,3 +17,8 @@ var User = sequelize.define('User', {
   username: Sequelize.STRING,
   birthday: Sequelize.DATE
 });
+
+User.sync({force: true}).then(function () {
+  // Table created
+  return;
+});

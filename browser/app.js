@@ -1,4 +1,4 @@
-var app = angular.module('myApp',[]);
+var app = angular.module('myApp',['ui.router']);
 
 app.controller('myCtrl', function($scope){
 	
@@ -6,17 +6,27 @@ app.controller('myCtrl', function($scope){
 		$scope.users = users;
 	});
 
-	$scope.test = "great things"
+	$scope.test = "Scope Test"
 	
 	$scope.sendToDB = function (){
 		sequelize.sync().then(function() {
 		  return User.create({
-		    username: $scope.texting,
+		    username: $scope.insertText,
 		    birthday: new Date(1980, 6, 20)
 		  });
 		}).then(function(user) {
 		  $scope.users.push(user)
 		});
+	}
+
+	$scope.insertInto = function(){
+		User.create({
+			username: $scope.insertText,
+		    birthday: new Date(2015, 6, 20)
+		}).then(function(user){
+			$scope.users.push(user);
+			return;
+		})
 	}
 	$scope.deleteAllUsers = function(){
 		User.destroy({where: {id: {$gt: 0}}});
