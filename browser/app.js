@@ -25,6 +25,7 @@ app.controller('myCtrl', function($scope){
 		    birthday: new Date(2015, 6, 20)
 		}).then(function(user){
 			$scope.users.push(user);
+			$scope.$digest();
 			return;
 		})
 	}
