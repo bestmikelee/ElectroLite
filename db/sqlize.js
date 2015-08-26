@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('ElectroLite', 'admin', 'password', {
+//var sequelize = new Sequelize('sqlite://' + __dirname + '/data.sqlite');
+var sequelize = new Sequelize('database', 'username', 'password', {
   host: 'localhost',
   dialect: 'sqlite',
 
@@ -10,15 +11,19 @@ var sequelize = new Sequelize('ElectroLite', 'admin', 'password', {
   },
 
   // SQLite only
-  storage: 'file:data.db'
+  storage: __dirname + '/database.sqlite'
 });
+
+
 
 var User = sequelize.define('User', {
   username: Sequelize.STRING,
   birthday: Sequelize.DATE
+},{
+  tableName: 'Users'
 });
 
-User.sync({force: true}).then(function () {
+User.sync().then(function () {
   // Table created
   return;
 });

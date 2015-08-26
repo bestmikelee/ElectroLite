@@ -1,12 +1,15 @@
 var app = angular.module('myApp',['ui.router']);
 
 app.controller('myCtrl', function($scope){
+    //
 
-	User.findAll({}).then(function(users){
-		$scope.users = users;
-	});
-
-	$scope.test = "Scope Test"
+	$scope.users = [];
+	$scope.getUsers = function(){
+        User.findAll({}).then(function(users){
+        	$scope.users = users;
+            $scope.$digest();
+        });
+    }
 
 
 	$scope.insertInto = function(){
@@ -14,13 +17,12 @@ app.controller('myCtrl', function($scope){
 			username: $scope.insertText,
 		    birthday: new Date(2015, 6, 20)
 		}).then(function(user){
-			$scope.users.push(user);
-			$scope.$digest();
+			$scope.getUsers();
 			return;
 		})
 	}
 	$scope.deleteAllUsers = function(){
 		User.destroy({where: {id: {$gt: 0}}});
-		$scope.users = [];
+        $scope.getUsers();
 	}
 })
