@@ -1,0 +1,25 @@
+{
+  "name": "E3",
+  "version": "0.1.0",
+  "homepage": "https://github.com/tells/ElectroLite",
+  "authors": [
+    "Mike <mike.sj.lee@gmail.com>"
+  ],
+  "description": "Excel with JS Editor",
+  "main": "./app/main.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.6",
+    "handsontable": "~0.16.1"
+  }
+}
